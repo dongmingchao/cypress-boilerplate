@@ -1,0 +1,31 @@
+{
+  "name": "cypress-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test cypress run",
+    "cypress": "NODE_ENV=test cypress open -P .",
+    "f2elint-scan": "f2elint scan",
+    "lint": "f2elint fix"
+  },
+  "author": "1657883517@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress-plugin-snapshots": "^1.4.4",
+    "cypress-xpath": "^1.6.1",
+    "eslint-config-ali": "^11.3.1",
+    "eslint-plugin-cypress": "^2.11.2",
+    "f2elint": "^0.4.2"
+  },
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "commit-msg": "f2elint exec commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "f2elint exec lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint"
+  }
+}

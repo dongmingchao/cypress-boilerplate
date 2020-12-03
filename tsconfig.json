@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom", "ES2015"],
+    "types": [
+      "/usr/local/lib/node_modules/cypress",
+      "cypress-plugin-snapshots",
+      "./support",
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
