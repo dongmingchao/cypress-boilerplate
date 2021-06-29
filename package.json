@@ -3,26 +3,33 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "cy-run": "./run.js"
+  },
   "scripts": {
     "test": "NODE_ENV=test cypress run",
     "cypress": "NODE_ENV=test cypress open -P .",
     "f2elint-scan": "f2elint scan",
     "lint": "f2elint fix"
   },
+  "types": "types.d.ts",
   "author": "1657883517@qq.com",
   "license": "ISC",
   "devDependencies": {
     "cypress-plugin-snapshots": "^1.4.4",
-    "cypress-xpath": "^1.6.1",
-    "eslint-config-ali": "^11.3.1",
-    "eslint-plugin-cypress": "^2.11.2",
-    "f2elint": "^0.4.2"
+    "cypress-xpath": "^1.6.2",
+    "eslint-config-ali": "^12.1.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "f2elint": "^1.2.0",
+    "typescript": "^4.3.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cypress": "^7.6.0"
+  },
   "husky": {
     "hooks": {
-      "commit-msg": "f2elint exec commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "f2elint exec lint-staged"
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
     }
   },
   "lint-staged": {

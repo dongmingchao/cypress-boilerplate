@@ -5,7 +5,7 @@
     "types": [
       "/usr/local/lib/node_modules/cypress",
       "cypress-plugin-snapshots",
-      "./support",
+      "cypress/support",
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true
