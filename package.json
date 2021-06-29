@@ -6,6 +6,14 @@
   "bin": {
     "cy-run": "./run.js"
   },
+  "files": [
+    "cypress",
+    "cypress.json",
+    "package.json",
+    "run.js",
+    "tsconfig.json",
+    "types.d.ts"
+  ],
   "scripts": {
     "test": "NODE_ENV=test cypress run",
     "cypress": "NODE_ENV=test cypress open -P .",
