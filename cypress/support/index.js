@@ -1,3 +1,4 @@
+"use strict";
 /// <reference types="cypress" />
 // ***********************************************************
 // This example support/index.js is processed and
@@ -13,37 +14,25 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-
+exports.__esModule = true;
 // Import commands.js using ES2015 syntax:
-import 'cypress-plugin-snapshots/commands';
-import 'cypress-xpath';
+require("cypress-plugin-snapshots/commands");
+require("cypress-xpath");
 // import '@cypress/code-coverage/support';
-import './commands';
-
-export declare namespace Cypress {
-  interface Chainable {
-    attach_file: (fileName: string, fileType: string) => Chainable;
-  }
-}
-
+require("./commands");
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-Cypress.Commands.add(
-  'attach_file',
-  {
-    prevSubject: 'element',
-  },
-  (input: JQuery<HTMLInputElement>, fileName: string, fileType: string) => {
+Cypress.Commands.add('attach_file', {
+    prevSubject: 'element'
+}, function (input, fileName, fileType) {
     cy.fixture(fileName, 'base64')
-      .then(content => Cypress.Blob.base64StringToBlob(content, fileType))
-      .then(blob => {
-        const testFile = new File([blob], fileName);
-        const dataTransfer = new DataTransfer();
-
+        .then(function (content) { return Cypress.Blob.base64StringToBlob(content, fileType); })
+        .then(function (blob) {
+        var testFile = new File([blob], fileName);
+        var dataTransfer = new DataTransfer();
         dataTransfer.items.add(testFile);
         // eslint-disable-next-line no-param-reassign
         input[0].files = dataTransfer.files;
         return input;
-      });
-  },
-);
+    });
+});
