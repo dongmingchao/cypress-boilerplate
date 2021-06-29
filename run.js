@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process');
-// const {series} = require('async');
 
-// series([
-//   () => execSync('npm run cypress')
-// ]);
-const cmd = `cd ${__dirname} && npm run cypress -- -c integrationFolder=${process.cwd()}`;
-console.log('cmd', cmd);
+let presetArgs = `-c integrationFolder=${process.cwd()}`;
+
+if (process.argv.length > 2) {
+  presetArgs = process.argv.join(' ');
+}
+const cmd = `cd ${__dirname} && npm run cypress -- ${presetArgs}`;
 execSync(cmd);
