@@ -19,8 +19,8 @@
     "types.d.ts"
   ],
   "scripts": {
-    "test": "NODE_ENV=test cypress run",
-    "cypress": "NODE_ENV=test cypress open -P .",
+    "test": "cross-env NODE_ENV=test cypress run",
+    "cypress": "cross-env NODE_ENV=test cypress open -P .",
     "f2elint-scan": "f2elint scan",
     "lint": "f2elint fix"
   },
@@ -37,6 +37,7 @@
     "cypress": "^8.0.0"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "cypress-plugin-snapshots": "^1.4.4",
     "cypress-xpath": "^1.6.2"
   },
